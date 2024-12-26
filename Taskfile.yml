@@ -1,0 +1,12 @@
+version: "3"
+
+tasks:
+  run-python:
+    desc: Run python bench
+    cmds:
+      - cd bench-python && sudo -v && codspeed run uv run pytest
+    preconditions:
+      - sh: test -d bench-python/.venv
+        msg: "No virtual env"
+      - sh: test -f bench-python/.venv/lib/libpython3.12.so.1.0
+        msg: "libpython3.12.so.1.0 not found in venv, copy it from your python install, eg: `ln -srf ~/.local/share/uv/python/cpython-3.12.6-linux-x86_64-gnu/lib/libpython3.12.so.1.0 ./.venv/lib/`"
