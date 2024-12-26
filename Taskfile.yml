@@ -4,7 +4,7 @@ tasks:
   run-python:
     desc: Run python bench
     cmds:
-      - cd bench-python && sudo -v && codspeed run uv run pytest
+      - cd bench-python && sudo -v && CODSPEED_LOG=debug codspeed run uv run pytest
     preconditions:
       - sh: test -d bench-python/.venv
         msg: "No virtual env"
