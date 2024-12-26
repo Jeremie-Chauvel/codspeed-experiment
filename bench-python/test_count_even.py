@@ -1,7 +1,8 @@
+from typing import Collection
 import pytest
 
 
-def count_even(arr: list[int]) -> int:
+def count_even(arr: Collection[int]) -> int:
     """Count the number of even numbers in an array."""
     even = 0
     for x in arr:
